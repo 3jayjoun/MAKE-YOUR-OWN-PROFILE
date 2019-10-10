@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import profile from './profile.jpg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      lien: "https://www.facebook.com/",
+    };
+  }
+  send(){
+    return (this.state.lien=="")? "" :this.state.lien; 
+  }
+  render() {
+    return (
+    <div className="App col-md-2 col-xs-2">
+      <img src={profile} className="profile"  />
+      <h2>Omar jribi</h2>
+      <button hidden={(this.state.lien=="")? true : false}>
+      <a href={this.state.lien}>facebook</a>
+      </button>
+    </div>  
+    );
+  }
+  
 }
 
 export default App;
